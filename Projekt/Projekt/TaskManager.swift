@@ -22,12 +22,16 @@ func addTodo(todo:TodoObject){
 }
 
 func removeTodo(name : String)-> Bool{
+    var x :Bool = false
     
+    while findByName(name) != -1{
     if findByName(name) != -1{
       toDoArray.removeAtIndex(findByName(name))
-      return true
+      x = true
+    }
 }
-    return false
+    return x
+    //return false
 }
 
 func findByName(name: String) -> Int{
