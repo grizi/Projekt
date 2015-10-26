@@ -8,17 +8,17 @@
 
 import Foundation
 
-enum Tip
+enum Tip: String
 {
     case KNJIGE, DOGODEK
 }
 
-enum Stanje
+enum Stanje: String
 {
     case SPOSOJENO, VRNJENO, BRANJE, SLUZBA, ZASEBNO, IZOBRAZEVANJE, DRUZENJE
 }
 
-enum Priority
+enum Priority: String
 {
     case NIZKA,SREDNJA,VISOKA
 }

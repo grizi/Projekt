@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F808C9501BD93DB200882077 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F808C94F1BD93DB200882077 /* Protocols.swift */; settings = {ASSET_TAGS = (); }; };
 		F82DD4CE1BD9033B001009D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82DD4CD1BD9033B001009D4 /* AppDelegate.swift */; };
 		F82DD4D01BD9033B001009D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82DD4CF1BD9033B001009D4 /* ViewController.swift */; };
 		F82DD4D31BD9033B001009D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F82DD4D11BD9033B001009D4 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F808C94F1BD93DB200882077 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		F82DD4CA1BD9033B001009D4 /* Projekt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projekt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82DD4CD1BD9033B001009D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F82DD4CF1BD9033B001009D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F808C94E1BD93D3000882077 /* Lecture4 */ = {
+			isa = PBXGroup;
+			children = (
+				F808C94F1BD93DB200882077 /* Protocols.swift */,
+			);
+			path = Lecture4;
+			sourceTree = "<group>";
+		};
 		F82DD4C11BD9033B001009D4 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +79,7 @@
 				F82DD4D41BD9033B001009D4 /* Assets.xcassets */,
 				F82DD4D61BD9033B001009D4 /* LaunchScreen.storyboard */,
 				F82DD4D91BD9033B001009D4 /* Info.plist */,
+				F808C94E1BD93D3000882077 /* Lecture4 */,
 			);
 			path = Projekt;
 			sourceTree = "<group>";
@@ -146,6 +157,7 @@
 				F82DD4D01BD9033B001009D4 /* ViewController.swift in Sources */,
 				F82DD4E01BD903BA001009D4 /* Enums.swift in Sources */,
 				F82DD4E41BD9043F001009D4 /* TaskManager.swift in Sources */,
+				F808C9501BD93DB200882077 /* Protocols.swift in Sources */,
 				F82DD4CE1BD9033B001009D4 /* AppDelegate.swift in Sources */,
 				F82DD4E21BD9040F001009D4 /* ToDo.swift in Sources */,
 			);
@@ -297,6 +309,7 @@
 				F82DD4DE1BD9033B001009D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

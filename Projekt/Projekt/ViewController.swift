@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var addTask: UIButton!
@@ -18,13 +18,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelPriority: UILabel!
     @IBOutlet weak var removeTask: UIButton!
+    @IBOutlet weak var labelLastItem: UILabel!
     
     
-    var taskManager : TaskManager = TaskManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addTask.selected = true
+        removeTask.selected = true
         // Do any additional setup after loading the view, typically from a nib.
+        textName.delegate = self
+        textPriority.delegate = self
+        
+        //za default vpis iz prejsnjega zaganjanja
+        if let gameName = NSUserDefaults.standardUserDefaults().objectForKey("GameName") as? String{
+        textName.text = gameName
+        }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        print("ENDED EDITING")
+        
+        if ( textField == self.textName){
+            print("NAME ENDED")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,14 +69,20 @@ class ViewController: UIViewController {
         }
         
         var dogodek: TodoObject = TodoObject.init(ime: name, tip: Tip.DOGODEK, prioriteta: priority, stanje: Stanje.ZASEBNO)
-        taskManager.addTodo(dogodek)
-        label.text = taskManager.getSizeArray()
+        TaskManager.taskmanager.addTodo(dogodek)
+        
+        label.text = TaskManager.taskmanager.getSizeArray()
+        //za shranjevanje default nastavitev oz od zadnje uporabe, user preferences,...
+        NSUserDefaults.standardUserDefaults().setObject(name, forKey: "GameName")
+        NSUserDefaults.standardUserDefaults().synchronize()
+     
+       labelLastItem.text = TaskManager.taskmanager.getLastItem()
     }
         
     @IBAction func actionRemoveButton(sender: UIButton) {
         var name : String = self.textName.text! as String
-        taskManager.removeTodo(name)
-        label.text = taskManager.getSizeArray()
+        TaskManager.taskmanager.removeTodo(name)
+        label.text = TaskManager.taskmanager.getSizeArray()
 
     }
 

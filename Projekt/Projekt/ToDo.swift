@@ -8,7 +8,17 @@
 
 import Foundation
 
-class TodoObject
+extension Equatable{}
+func == (lhs: TodoObject, rhs:TodoObject) -> Bool {
+    if lhs.ime == rhs.ime && lhs.datum == rhs.datum && lhs.datumSpremembe == rhs.datumSpremembe && lhs.prioriteta == rhs.prioriteta && lhs.tip == rhs.tip && lhs.stanje == rhs.stanje{
+        return true
+    }else{
+    return false
+    }
+}
+
+
+class TodoObject: NSObject
 {
     
     var ime:String
@@ -28,12 +38,44 @@ class TodoObject
         
         
     }
-    
-    func description()
+   
+    func description_() ->String
     {
-        print( " \(self.datum), \(self.tip), \(self.prioriteta), \(self.ime), \(self.stanje)")
+ 
+        return ( " \(formatDate(datum)),\n \(self.tip),\n \(self.prioriteta),\n \(self.ime),\n \(self.stanje)")
         
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.ime = aDecoder.decodeObjectForKey("ime") as! String
+        self.datum = aDecoder.decodeObjectForKey("datum") as! NSDate
+        self.datumSpremembe = aDecoder.decodeObjectForKey("datumSpremembe") as! NSDate
+        self.prioriteta = Priority(rawValue:  aDecoder.decodeObjectForKey("prioriteta") as! String)!
+        self.tip = Tip(rawValue: aDecoder.decodeObjectForKey("tip") as! String)!
+        self.stanje = Stanje(rawValue: aDecoder.decodeObjectForKey("stanje") as! String)!
+        
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder!) {
+        aCoder.encodeObject(self.ime, forKey: "ime")
+        aCoder.encodeObject(self.datum, forKey: "datum")
+        aCoder.encodeObject(self.datumSpremembe, forKey: "datumSpremembe")
+        aCoder.encodeObject(self.prioriteta.rawValue , forKey: "prioriteta")
+        aCoder.encodeObject(self.tip.rawValue , forKey: "tip")
+        aCoder.encodeObject(self.stanje.rawValue , forKey: "stanje")
+        
+    }
+    
+    func formatDate(datum : NSDate) -> String{
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        formatter.timeStyle = .ShortStyle
+        
+        let dateString = formatter.stringFromDate(datum)
+        
+        return dateString
     }
     
     
 }
+    
